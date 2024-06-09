@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            padding: 50px 0;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .animated {
+            animation-name: jump;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes jump {
+            0% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-10px);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            75% {
+                transform: translateY(-5px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-white shadow p-4">
+        <h4 class="text-lg font-semibold mb-4">Navigasi Judul</h4>
+        <nav class="link flex space-x-4">
+            <a href="#first" class="text-blue-500 hover:text-blue-700">Pertemuan 3</a>
+            <a href="#second" class="text-blue-500 hover:text-blue-700">Pertemuan 4</a>
+            <a href="#third" class="text-blue-500 hover:text-blue-700">Pertemuan 5</a>
+            <a href="#fourth" class="text-blue-500 hover:text-blue-700">Pertemuan 6</a>
+            <a href="#fifth" class="text-blue-500 hover:text-blue-700">Pertemuan 7</a>
+            <a href="#sixth" class="text-blue-500 hover:text-blue-700">Pertemuan 8</a>
+            <a href="#seventh" class="text-blue-500 hover:text-blue-700">Pertemuan 9</a>
+            <a href="#eighth" class="text-blue-500 hover:text-blue-700">Pertemuan 10</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4">
+        <section id="first" class="section">
+            <a href="../pertemuan3/canvas/canvas_2203015129.html">
+                <h2 class="text-xl font-bold hover:animate-pulse">Pertemuan 3</h2>
+            </a>
+        </section>
+        <section id="second" class="section">
+           <a href="../pertemuan4/hal29.html">
+            <h2 class="text-xl font-bold hover:animate-pulse">Pertemuan 4</h2>
+           </a>
+        </section>
+        <section id="third" class="section">
+            <a href="#">
+                <h2 class="text-xl font-bold hover:animate-pulse">Pertemuan 5</h2>
+            </a>
+        </section>
+        <section id="fourth" class="section">
+           <a href="../pertemuan6/parentNode.html">
+            <h2 class="text-xl font-bold hover:animate-pulse">Pertemuan 6</h2>
+           </a>
+        </section>
+        <section id="fifth" class="section">
+            <a href="../pertemuan7/index2.html">
+                <h2 class="text-xl font-bold hover:animate-pulse">Pertemuan 7</h2>
+            </a>
+        </section>
+        <section id="sixth" class="section">
+            <a href="../pertemuan8/second.html">
+                <h2 class="text-xl font-bold hover:animate-pulse">Pertemuan 8</h2>
+            </a>
+        </section>
+        <section id="seventh" class="section">
+            <a href="../pertemuan9/index.html">
+                <h2 class="text-xl font-bold hover:animate-pulse">Pertemuan 9</h2>
+            </a>
+        </section>
+        <section id="eighth" class="section">
+            <a href="../pertemuan10/index.html">
+                <h2 class="text-xl font-bold hover:animate-pulse">Pertemuan 10</h2>
+            </a>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('a[href^="#"]').on('click', function (event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 300);
+                    target.addClass('animated');
+                    setTimeout(function () {
+                        target.removeClass('animated');
+                    }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
